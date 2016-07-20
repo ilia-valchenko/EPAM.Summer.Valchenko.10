@@ -1,0 +1,5 @@
+c:\users\ilia\documents\visual studio 2015\Projects\FibonacciNumbers\FibonacciNumbers\bin\Debug\FibonacciNumbers.dll
+c:\users\ilia\documents\visual studio 2015\Projects\FibonacciNumbers\FibonacciNumbers\bin\Debug\FibonacciNumbers.pdb
+c:\users\ilia\documents\visual studio 2015\Projects\FibonacciNumbers\FibonacciNumbers\obj\Debug\FibonacciNumbers.csprojResolveAssemblyReference.cache
+c:\users\ilia\documents\visual studio 2015\Projects\FibonacciNumbers\FibonacciNumbers\obj\Debug\FibonacciNumbers.dll
+c:\users\ilia\documents\visual studio 2015\Projects\FibonacciNumbers\FibonacciNumbers\obj\Debug\FibonacciNumbers.pdb
