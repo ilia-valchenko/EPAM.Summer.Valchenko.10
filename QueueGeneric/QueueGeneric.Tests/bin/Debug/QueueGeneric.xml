@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QueueGeneric</name>
+    </assembly>
+    <members>
+        <member name="T:QueueGeneric.Queue`1">
+            <summary>
+            This class represents a custom generic queue.
+            </summary>
+            <typeparam name="T">T is the type which queue contains.</typeparam>
+        </member>
+        <member name="P:QueueGeneric.Queue`1.IsEmpty">
+            <summary>
+            This property returns true if queue is empty and false if it's not.
+            </summary>
+        </member>
+        <member name="P:QueueGeneric.Queue`1.Count">
+            <summary>
+            This property returns number of elements in queue.
+            </summary>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.#ctor">
+            <summary>
+            Public default constructor.
+            </summary>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.Enqueue(`0)">
+            <summary>
+            This method adds new elements to the end of queue.
+            </summary>
+            <param name="value">Element which must be added.</param>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.Dequeue">
+            <summary>
+            This method takes the first element of queue and returns it. This element will be remove after this.
+            </summary>
+            <returns>The first element of queue.</returns>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.Peek">
+            <summary>
+            This method returns the first element of queue without removing.
+            </summary>
+            <returns>The first element of queue.</returns>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.GetArrayOfQueueElements">
+            <summary>
+            This method returns all elements of queue as an array.
+            </summary>
+            <returns>Array of queue's elements.</returns>
+        </member>
+        <member name="P:QueueGeneric.Queue`1.Item(System.Int32)">
+            <summary>
+            This is 'this' property.
+            </summary>
+            <param name="index">Index of element.</param>
+            <returns>Element by given index.</returns>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.GetEnumerator">
+            <summary>
+            This method returns custom iterator for queue.
+            </summary>
+            <returns>Instnce of custom iterator.</returns>
+        </member>
+        <member name="T:QueueGeneric.Queue`1.CustomIterator">
+            <summary>
+            This struct represents a custom iterator.
+            </summary>
+        </member>
+        <member name="P:QueueGeneric.Queue`1.CustomIterator.Current">
+            <summary>
+            This property returns current element.
+            </summary>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.CustomIterator.Reset">
+            <summary>
+            This method set interator counter to default.
+            </summary>
+        </member>
+        <member name="M:QueueGeneric.Queue`1.CustomIterator.MoveNext">
+            <summary>
+            This method determines can we move to the next item or not.
+            </summary>
+            <returns>True if we can move to the next item in collection.</returns>
+        </member>
+        <member name="F:QueueGeneric.Queue`1.array">
+            <summary>
+            Array which contains of queue's elements.
+            </summary>
+        </member>
+        <member name="F:QueueGeneric.Queue`1.indexOfLastElement">
+            <summary>
+            Index of the last element of queue.
+            </summary>
+        </member>
+        <member name="F:QueueGeneric.Queue`1.indexOfFirstElement">
+            <summary>
+            Index of the first element of queue.
+            </summary>
+        </member>
+    </members>
+</doc>

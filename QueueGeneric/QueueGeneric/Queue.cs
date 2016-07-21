@@ -7,22 +7,40 @@ using System.Threading.Tasks;
 
 namespace QueueGeneric
 {
+    /// <summary>
+    /// This class represents a custom generic queue.
+    /// </summary>
+    /// <typeparam name="T">T is the type which queue contains.</typeparam>
     public class Queue<T>
     {
         #region Public fields and properties
-        public bool isEmpty => indexOfFirstElement > indexOfLastElement;
-        public int IndexOfFirstElement => indexOfFirstElement;
-        public int IndexOfLastElement => indexOfLastElement;
+        /// <summary>
+        /// This property returns true if queue is empty and false if it's not.
+        /// </summary>
+        public bool IsEmpty => indexOfFirstElement > indexOfLastElement || (indexOfFirstElement == -1 && indexOfLastElement == -1);
+        /// <summary>
+        /// This property returns number of elements in queue.
+        /// </summary>
+        public int Count => indexOfLastElement - indexOfFirstElement + 1;
         #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Public default constructor.
+        /// </summary>
         public Queue()
         {
             array = new T[10];
             indexOfLastElement = -1;
             indexOfFirstElement = -1;
-        }
+        } 
+        #endregion
 
         #region Basic queue operations
+        /// <summary>
+        /// This method adds new elements to the end of queue.
+        /// </summary>
+        /// <param name="value">Element which must be added.</param>
         public void Enqueue(T value)
         {
             if (indexOfLastElement == array.Length - 1)
@@ -38,89 +56,128 @@ namespace QueueGeneric
                     array[i] = bufferArr[i];
             }
 
+            if (IsEmpty)
+                indexOfFirstElement = 0;
+
             indexOfLastElement++;
             array[indexOfLastElement] = value;
         }
 
+        /// <summary>
+        /// This method takes the first element of queue and returns it. This element will be remove after this.
+        /// </summary>
+        /// <returns>The first element of queue.</returns>
         public T Dequeue()
         {
-            if (!isEmpty)
+            if (!IsEmpty)
             {
                 T result = array[indexOfFirstElement];
                 array[indexOfFirstElement] = default(T);
                 indexOfFirstElement++;
-                indexOfCurrentElement = indexOfFirstElement;
                 return result;
             }
-            else throw new InvalidOperationException();
+            else throw new InvalidOperationException("Queue is empty!");
         }
 
+        /// <summary>
+        /// This method returns the first element of queue without removing.
+        /// </summary>
+        /// <returns>The first element of queue.</returns>
         public T Peek()
         {
-            if (!isEmpty)
+            if (!IsEmpty)
                 return array[indexOfFirstElement];
-            throw new InvalidOperationException();
+            throw new InvalidOperationException("Queue is empty!");
         }
         #endregion
 
+        #region Optional operations
+        /// <summary>
+        /// This method returns all elements of queue as an array.
+        /// </summary>
+        /// <returns>Array of queue's elements.</returns>
         public T[] GetArrayOfQueueElements()
         {
-            T[] arrayOfStackElements = new T[indexOfLastElement + 1];
+            T[] arrayOfStackElements = new T[Count];
 
-            for (int i = 0; i <= indexOfLastElement; i++)
-                arrayOfStackElements[i] = array[i];
+            for (int i = indexOfFirstElement, j = 0; i <= indexOfLastElement; i++, j++)
+                arrayOfStackElements[j] = array[i];
 
             return arrayOfStackElements;
         }
+        #endregion
 
-        private class CustomEnumerator : IEnumerator<T>
+        #region Custom iterator
+        /// <summary>
+        /// This is 'this' property.
+        /// </summary>
+        /// <param name="index">Index of element.</param>
+        /// <returns>Element by given index.</returns>
+        public T this[int index]
         {
-            private Queue queue;
-            private int position;
+            get { return array[index]; }
+            set { array[index] = value; }
+        }
 
-            internal CustomEnumerator(Queue queue)
+        /// <summary>
+        /// This method returns custom iterator for queue.
+        /// </summary>
+        /// <returns>Instnce of custom iterator.</returns>
+        public CustomIterator GetEnumerator() => new CustomIterator(this);
+
+        /// <summary>
+        /// This struct represents a custom iterator.
+        /// </summary>
+        public struct CustomIterator
+        {
+            private readonly Queue<T> collection;
+            private int currentIndex;
+
+            internal CustomIterator(Queue<T> collection)
             {
-                Reset();
-                this.queue = queue;
+                this.currentIndex = -1;
+                this.collection = collection;
             }
 
-            /*public T Current
+            /// <summary>
+            /// This property returns current element.
+            /// </summary>
+            public T Current
             {
                 get
                 {
-                    if (position < 0 || queue.IndexOfCurrentElement > queue)
+                    if (currentIndex == -1 || currentIndex == collection.Count)
                         throw new InvalidOperationException();
-
-                    return array[indexOfCurrentElement];
+                    return collection[currentIndex];
                 }
-            }*/
-
-            public void Dispose() { }
-
-            object IEnumerator.Current => Current;
-
-            public bool MoveNext()
-            {
-                if (indexOfCurrentElement < indexOfLastElement)
-                {
-                    indexOfCurrentElement++;
-                    return indexOfCurrentElement < indexOfLastElement;
-                }
-
-                return false;
             }
+            
+            /// <summary>
+            /// This method set interator counter to default.
+            /// </summary>
+            public void Reset() => currentIndex = collection.indexOfFirstElement;
 
-            public void Reset()
-            {
-                
-            }
-        }
+            /// <summary>
+            /// This method determines can we move to the next item or not.
+            /// </summary>
+            /// <returns>True if we can move to the next item in collection.</returns>
+            public bool MoveNext() => ++currentIndex < collection.Count;
+        } 
+        #endregion
 
         #region Private fields
+        /// <summary>
+        /// Array which contains of queue's elements.
+        /// </summary>
         private T[] array;
+        /// <summary>
+        /// Index of the last element of queue.
+        /// </summary>
         private int indexOfLastElement;
+        /// <summary>
+        /// Index of the first element of queue.
+        /// </summary>
         private int indexOfFirstElement;
-        private int indexOfCurrentElement;
         #endregion
     }
 }

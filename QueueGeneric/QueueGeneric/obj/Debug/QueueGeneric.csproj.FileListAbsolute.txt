@@ -1,1 +1,12 @@
 c:\users\ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.csprojResolveAssemblyReference.cache
+C:\Users\Ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.dll
+C:\Users\Ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.pdb
+C:\Users\Ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.dll
+C:\Users\Ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.pdb
+C:\Users\Ilia\documents\visual studio 2015\Projects\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.XML
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.XML
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\bin\Debug\QueueGeneric.pdb
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric\obj\Debug\QueueGeneric.pdb

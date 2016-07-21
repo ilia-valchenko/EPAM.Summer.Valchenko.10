@@ -1,0 +1,12 @@
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.Tests.dll.config
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.Tests.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.Tests.pdb
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\nunit.framework.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.pdb
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\QueueGeneric.xml
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\bin\Debug\nunit.framework.xml
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\obj\Debug\QueueGeneric.Tests.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\obj\Debug\QueueGeneric.Tests.dll
+G:\GitEpam\Day10\QueueGeneric\QueueGeneric.Tests\obj\Debug\QueueGeneric.Tests.pdb
