@@ -206,6 +206,14 @@ namespace CustomSet
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
         #endregion
 
+        #region Some of ICollection methods
+        /// <summary>
+        /// This method returns elements of the set as an array.
+        /// </summary>
+        /// <returns>Returns elements of the set as an array.</returns>
+        public T[] ToArray() => collection.ToArray(); 
+        #endregion
+
         #region Private fields
         /// <summary>
         /// This List represents collection of elements which the set contains.

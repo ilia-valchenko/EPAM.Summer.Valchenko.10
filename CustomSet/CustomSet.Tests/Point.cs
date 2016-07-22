@@ -11,7 +11,7 @@ namespace CustomSet.Tests
         public int X => x;
         public int Y => y;
 
-        public Point():this(0,0) { }
+        public Point() : this(0, 0) { }
 
         public Point(int x, int y)
         {
@@ -21,7 +21,7 @@ namespace CustomSet.Tests
 
         public bool Equals(Point other)
         {
-            if(ReferenceEquals(other, null))
+            if (ReferenceEquals(other, null))
                 throw new ArgumentNullException(nameof(other));
 
             if (this.x == other.x && this.y == other.y)

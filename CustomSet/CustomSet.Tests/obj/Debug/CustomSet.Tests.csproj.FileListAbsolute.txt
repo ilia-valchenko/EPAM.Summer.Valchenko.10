@@ -1,0 +1,11 @@
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\CustomSet.Tests.dll
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\CustomSet.Tests.pdb
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\CustomSet.dll
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\nunit.framework.dll
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\CustomSet.pdb
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\CustomSet.xml
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\bin\Debug\nunit.framework.xml
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\obj\Debug\CustomSet.Tests.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\obj\Debug\CustomSet.Tests.dll
+G:\GitEpam\Day10\CustomSet\CustomSet.Tests\obj\Debug\CustomSet.Tests.pdb
