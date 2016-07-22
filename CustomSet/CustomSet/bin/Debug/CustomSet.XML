@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CustomSet</name>
+    </assembly>
+    <members>
+        <member name="T:CustomSet.Set`1">
+            <summary>
+            This class represents a custom set which consists of unique elements.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:CustomSet.Set`1.Count">
+            <summary>
+            Count of elements in set.
+            </summary>
+        </member>
+        <member name="M:CustomSet.Set`1.#ctor">
+            <summary>
+            Default constructor which create an empty set.
+            </summary>
+        </member>
+        <member name="M:CustomSet.Set`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            This constructor create the set which consists of element of collection.
+            </summary>
+            <param name="collection">Collection of original objects.</param>
+        </member>
+        <member name="M:CustomSet.Set`1.Add(`0)">
+            <summary>
+            This method adds a new element to the set.
+            </summary>
+            <param name="insertItem">Element which must be insetred.</param>
+        </member>
+        <member name="M:CustomSet.Set`1.Delete(`0)">
+            <summary>
+            This method deletes given element from the set if it exists. If element doesn't exist then exception will be thrown.
+            </summary>
+            <param name="deletedItem">Element which must be deleted.</param>
+        </member>
+        <member name="M:CustomSet.Set`1.Intersect(CustomSet.Set{`0})">
+            <summary>
+            This method returns the result of intersection
+            </summary>
+            <param name="otherSet">Another set which  will be interseted to a current set.</param>
+        </member>
+        <member name="M:CustomSet.Set`1.Intersect(CustomSet.Set{`0},CustomSet.Set{`0})">
+            <summary>
+            This method returns the new set which represents intersection of two given sets.
+            </summary>
+            <param name="firstSet">The first set.</param>
+            <param name="secondSet">The second set.</param>
+            <returns>Returns the new set which represents intersection of two given sets.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.Difference(CustomSet.Set{`0})">
+            <summary>
+            This method returns the difference of two sets.
+            </summary>
+            <param name="other">The second set for difference.</param>
+            <returns>The result of difference of current set and given another.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.Difference(CustomSet.Set{`0},CustomSet.Set{`0})">
+            <summary>
+            This method returns the new set which represents the difference between firstSet and secondSet.
+            </summary>
+            <param name="firstSet">First set.</param>
+            <param name="secondSet">Second set.</param>
+            <returns>New set which represents the result of difference.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.Union(CustomSet.Set{`0})">
+            <summary>
+            This method finds union of two sets.
+            </summary>
+            <param name="other">Another set.</param>
+            <returns>Returns the new set which represents the result of union current and given another set.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.Union(CustomSet.Set{`0},CustomSet.Set{`0})">
+            <summary>
+            This static method finds union of two sets.
+            </summary>
+            <param name="firstSet">The first set.</param>
+            <param name="secondSet">The second set.</param>
+            <returns>Returns the new set which represents the result of union current and given another set.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.SymmetricDifference(CustomSet.Set{`0})">
+            <summary>
+            This method finds symmetric difference between two sets. 
+            </summary>
+            <param name="otherSet">Another set.</param>
+            <returns>Returns a new set which represents the symmetric difference.</returns>
+        </member>
+        <member name="M:CustomSet.Set`1.GetEnumerator">
+            <summary>
+            This method returns enumerator for foreach loop.
+            </summary>
+            <returns>Returns enumerator.</returns>
+        </member>
+        <member name="F:CustomSet.Set`1.collection">
+            <summary>
+            This List represents collection of elements which the set contains.
+            </summary>
+        </member>
+    </members>
+</doc>
