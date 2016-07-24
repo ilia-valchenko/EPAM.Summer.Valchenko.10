@@ -17,3 +17,5 @@ G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplicati
 G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\nunit.framework.dll
 G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.xml
 G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\nunit.framework.xml
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.Tests.dll
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.Tests.pdb

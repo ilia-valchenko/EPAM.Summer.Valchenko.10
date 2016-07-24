@@ -55,6 +55,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BinarySearchTree.Tests\BinarySearchTree.Tests.csproj">
+      <Project>{a0dbce22-c19a-4b01-8d31-b0d69c0c29fd}</Project>
+      <Name>BinarySearchTree.Tests</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BinarySearchTree\BinarySearchTree.csproj">
       <Project>{a071ff49-a937-4d7b-ad06-c57ff2c3506b}</Project>
       <Name>BinarySearchTree</Name>

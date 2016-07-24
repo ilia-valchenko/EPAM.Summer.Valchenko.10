@@ -26,26 +26,36 @@
             </summary>
             <param name="value">Value which will be added.</param>
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.AddTo(BinarySearchTree.BinaryTree{`0}.Node,`0)">
+        <member name="M:BinarySearchTree.BinaryTree`1.Add(`0,System.Collections.Generic.IComparer{`0})">
+            <summary>
+            This method adds value to the BST by using custom comparator.
+            </summary>
+            <param name="value">Value which will be added.</param>
+            <param name="comparator">Custom comparator.</param>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.AddTo(BinarySearchTree.BinaryTree{`0}.Node,`0,System.Collections.Generic.IComparer{`0})">
             <summary>
             This is helper method which use recursion for adding value to the BST. 
             </summary>
             <param name="node">The node that will be used to determine on what go further subtree.</param>
             <param name="value">Value which will be added.</param>
+            <param name="comparator">Custom comparator.</param>
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.FindByValue(`0)">
+        <member name="M:BinarySearchTree.BinaryTree`1.FindByValue(`0,System.Collections.Generic.IComparer{`0})">
             <summary>
-            This method finds BST's node by given value.
+            This method finds node which contains a given value by using custom comparator.
             </summary>
-            <param name="value">Value which one of nodes might contains.</param>
-            <returns>Returns node if the BST contains this value or null if it not.</returns>
+            <param name="value">The value which node should contains.</param>
+            <param name="comparator">Custom comparator.</param>
+            <returns>Node which contains a given value.</returns>
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.Find(BinarySearchTree.BinaryTree{`0}.Node,`0)">
+        <member name="M:BinarySearchTree.BinaryTree`1.Find(BinarySearchTree.BinaryTree{`0}.Node,`0,System.Collections.Generic.IComparer{`0})">
             <summary>
             This is the helper method which is called by FindByValue method. 
             </summary>
             <param name="node">The node that will be used to determine on what go further subtree.</param>
             <param name="value">Seeking value.</param>
+            <param name="comparator">Custom comparator.</param>
             <returns>Returns node if the BST contains this value or null if it not.</returns>
         </member>
         <member name="M:BinarySearchTree.BinaryTree`1.Preorder">

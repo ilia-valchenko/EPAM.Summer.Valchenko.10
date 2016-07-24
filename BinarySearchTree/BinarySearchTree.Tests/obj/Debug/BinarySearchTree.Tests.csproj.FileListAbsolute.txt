@@ -1,0 +1,11 @@
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\BinarySearchTree.Tests.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\BinarySearchTree.Tests.pdb
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\BinarySearchTree.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\nunit.framework.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\BinarySearchTree.pdb
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\BinarySearchTree.xml
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\bin\Debug\nunit.framework.xml
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\obj\Debug\BinarySearchTree.Tests.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\obj\Debug\BinarySearchTree.Tests.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree.Tests\obj\Debug\BinarySearchTree.Tests.pdb

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BinarySearchTree;
+using BinarySearchTree.Tests;
 
 namespace ConsoleApplication1
 {
@@ -11,12 +12,35 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            var tree = new BinaryTree<int>() {7,5,4,6,1,8,7,10};
+            var tree = new BinaryTree<int>() {7,5,4,6,1,9,8,10};
+            BinaryTree<int> treeInt32 = new BinaryTree<int>() { 7, 5, 4, 6, 1, 9, 8, 10 };
 
-            foreach (var VARIABLE in tree.Inorder())
-            {
-                Console.WriteLine(VARIABLE);
-            }
+            //BinaryTree<string> treeString = new BinaryTree<string>() { "Hello", "Mr", "Jon", "Skeet" };
+            var sTree = new BinaryTree<string>();
+
+            var comp = new ComparatorByStringLenght();
+
+            sTree.Add("Hello", comp);
+            sTree.Add("Mr", comp);
+            sTree.Add("Jon", comp);
+            sTree.Add("Skeet", comp);
+
+            //treeInt32.Add(3);
+            //treeInt32.Add(12);
+
+            //foreach (var VARIABLE in treeString.Preorder())
+            //{
+            //    Console.WriteLine(VARIABLE);
+            //}
+
+
+            Console.WriteLine("Print traversal");
+            foreach (var VARIABLE in sTree.Preorder())
+               {
+                   Console.WriteLine(VARIABLE);
+               }
+
+                Console.WriteLine("\nResult of finding: {0}", sTree.FindByValue("Bob", comp));
 
            /* Console.WriteLine("Number of elements: {0}", tree.Count);
 
