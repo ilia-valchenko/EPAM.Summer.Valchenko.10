@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BinarySearchTree</name>
+    </assembly>
+    <members>
+        <member name="T:BinarySearchTree.BinaryTree`1">
+            <summary>
+            This class represents a BST.
+            </summary>
+            <typeparam name="T">T is a type of BST's elements.</typeparam>
+        </member>
+        <member name="P:BinarySearchTree.BinaryTree`1.Count">
+            <summary>
+            Number of elements in BST.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.#ctor">
+            <summary>
+            Default constructor which creates empty BST.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Add(`0)">
+            <summary>
+            This method adds elements to the BST.
+            </summary>
+            <param name="value">Value which will be added.</param>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.AddTo(BinarySearchTree.BinaryTree{`0}.Node,`0)">
+            <summary>
+            This is helper method which use recursion for adding value to the BST. 
+            </summary>
+            <param name="node">The node that will be used to determine on what go further subtree.</param>
+            <param name="value">Value which will be added.</param>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.FindByValue(`0)">
+            <summary>
+            This method finds BST's node by given value.
+            </summary>
+            <param name="value">Value which one of nodes might contains.</param>
+            <returns>Returns node if the BST contains this value or null if it not.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Find(BinarySearchTree.BinaryTree{`0}.Node,`0)">
+            <summary>
+            This is the helper method which is called by FindByValue method. 
+            </summary>
+            <param name="node">The node that will be used to determine on what go further subtree.</param>
+            <param name="value">Seeking value.</param>
+            <returns>Returns node if the BST contains this value or null if it not.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Preorder">
+            <summary>
+            Display the data part of the root (or current node). Traverse the left subtree by recursively calling the pre-order function. Traverse the right subtree by recursively calling the pre-order function.
+            </summary>
+            <returns>Returns IEnumerable.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Inorder">
+            <summary>
+            Traverse the left subtree by recursively calling the in-order function. Display the data part of the root (or current node). Traverse the right subtree by recursively calling the in-order function.
+            </summary>
+            <returns>Returns IEnumerable.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Postorder">
+            <summary>
+            Post-order traversal with recursion. Traverse the left subtree by recursively calling the post-order function. Traverse the right subtree by recursively calling the post-order function. Display the data part of the root (or current node).
+            </summary>
+            <returns>Returns IEnumerable.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.DoPostOrder(BinarySearchTree.BinaryTree{`0}.Node)">
+            <summary>
+            This is the helper method which uses recurcion.
+            </summary>
+            <param name="node">Node for finding subtree.</param>
+            <returns>Returns IEnumerable.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Clear">
+            <summary>
+            Clear the BST.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Contains(`0)">
+            <summary>
+            This method determines BST contains given element or not.
+            </summary>
+            <param name="item"></param>
+            <returns>Returns true if it contains given element.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="destinationArray"></param>
+            <param name="startIndex"></param>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.GetEnumerator">
+            <summary>
+            This method returs enumerator.
+            </summary>
+            <returns>Returns IEnumerator.</returns>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Remove(`0)">
+            <summary>
+            Remove element in tree by the value.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BinarySearchTree.BinaryTree`1.Node">
+            <summary>
+            This class represents the node of BST.
+            </summary>
+        </member>
+        <member name="P:BinarySearchTree.BinaryTree`1.Node.Left">
+            <summary>
+            Left node.
+            </summary>
+        </member>
+        <member name="P:BinarySearchTree.BinaryTree`1.Node.Right">
+            <summary>
+            Right node.
+            </summary>
+        </member>
+        <member name="P:BinarySearchTree.BinaryTree`1.Node.Value">
+            <summary>
+            Value of the current node.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Node.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Node.#ctor(`0)">
+            <summary>
+            Constructor with parameter.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.Node.ToString">
+            <summary>
+            Overrided ToString method.
+            </summary>
+            <returns>Representation of node in string foemat.</returns>
+        </member>
+        <member name="F:BinarySearchTree.BinaryTree`1.Node.value">
+            <summary>
+            Value of the node.
+            </summary>
+        </member>
+        <member name="F:BinarySearchTree.BinaryTree`1.head">
+            <summary>
+            Main root of BST.
+            </summary>
+        </member>
+        <member name="F:BinarySearchTree.BinaryTree`1.count">
+            <summary>
+            Number of elements in BST.
+            </summary>
+        </member>
+    </members>
+</doc>

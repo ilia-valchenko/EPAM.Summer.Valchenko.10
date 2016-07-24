@@ -3,3 +3,9 @@ c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\BinarySearc
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csprojResolveAssemblyReference.cache
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.dll
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.pdb
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.pdb
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.dll
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\obj\Debug\BinarySearchTree.pdb
+G:\GitEpam\Day10\BinarySearchTree\BinarySearchTree\bin\Debug\BinarySearchTree.XML

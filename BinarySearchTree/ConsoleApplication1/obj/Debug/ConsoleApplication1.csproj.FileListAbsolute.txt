@@ -6,3 +6,14 @@ c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\ConsoleAppl
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
 c:\users\ilia\documents\visual studio 2015\Projects\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.dll
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.pdb
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\nunit.framework.dll
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\BinarySearchTree.xml
+G:\GitEpam\Day10\BinarySearchTree\ConsoleApplication1\bin\Debug\nunit.framework.xml
