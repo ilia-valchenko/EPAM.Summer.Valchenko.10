@@ -9,6 +9,10 @@ namespace Matrix
 {
     public class SquareMatrix<T> : IEnumerable<T> where T : IEquatable<T>
     {
+        public delegate void MethodSet(int i, int j, T value);
+
+        public event MethodSet OnSet;
+
         public int Size
         {
             get
@@ -70,14 +74,41 @@ namespace Matrix
             }
         }*/
 
+        public virtual void Set(int i, int j, T value)
+        {
+            if(i < 0 || j < 0)
+                throw new ArgumentException("Index of element can't be less then zero.");
+
+            if(i > Size || j > Size)
+                throw new ArgumentException("Index of element can't be greater then size of matrix.");
+
+            if(value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            innerArray[i][j] = value;
+
+            OnSet(i, j, value);
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
-            for(int i = 0; i < Size; i++)
-            	for(int j = 0; j < Size; j++)
-            		yield return innerArray[i][j];
+            /*foreach (T item in innerArray)
+                yield return item;*/
+                throw new NotImplementedException();
         }      
 
         IEnumerator IEnumerable.GetEnumerator() => innerArray.GetEnumerator();
+
+       public void PrintMatrix()
+       {
+           for (int i = 0; i < Size; i++)
+           {
+               for (int j = 0; j < Size; j++)
+                   Console.Write(innerArray[i][j] + " ");
+
+               Console.Write(Environment.NewLine);
+           }
+       }
 
         protected int size;
         protected T[][] innerArray;
