@@ -6,33 +6,71 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class DiagonalMatrix<T> : SquareMatrix<T> where T : IEquatable<T>
+    public class DiagonalMatrix<T> : Matrix<T>
     {
-        public DiagonalMatrix(T[] arrayOfDiagonalElements) : base(new T[] {default(T)})
+        #region Public fields and properties
+
+        public event MethodSet OnSetValue;
+
+        #endregion
+
+        public DiagonalMatrix(T[] arrayOfDiagonalElements) 
         {
             if(arrayOfDiagonalElements == null)
                 throw new ArgumentNullException(nameof(arrayOfDiagonalElements));
 
             Size = arrayOfDiagonalElements.Length;
 
-            innerArray = new T[Size][];
+            this.arrayOfDiagonalElements = arrayOfDiagonalElements;
+        }
 
-            for(int i = 0; i < Size; i++)
-                innerArray[i] = new T[Size];
+        public override T GetValue(int i, int j)
+        {
+            if (i < 0 || j < 0)
+                throw new ArgumentException("Index of element can't be less then zero.");
 
-            for (int i = 0, h = 0; i < Size; i++)
+            if (i > Size || j > Size)
+                throw new ArgumentException("Index of element can't be greater then size of matrix.");
+
+            if (i != j)
+                return default(T);
+
+            return arrayOfDiagonalElements[i];
+        }
+
+        public override void SetValue(int i, int j, T value)
+        {
+            if (i < 0 || j < 0)
+                throw new ArgumentException("Index of element can't be less then zero.");
+
+            if (i > Size || j > Size)
+                throw new ArgumentException("Index of element can't be greater then size of matrix.");
+
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            if(i != j)
+                throw new InvalidOperationException("A diagonal matrix contains the default values are located outside the main diagonal.");
+
+            arrayOfDiagonalElements[i] = value;
+
+            OnSetValue(i, j, value);
+        }
+
+        public override IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < Size; i++)
             {
                 for (int j = 0; j < Size; j++)
                 {
                     if (i != j)
-                        innerArray[i][j] = default(T);
+                        yield return default(T);
                     else
-                    {
-                        innerArray[i][j] = arrayOfDiagonalElements[h];
-                        h++;
-                    }
+                        yield return arrayOfDiagonalElements[i];
                 }
             }
         }
+
+        private readonly T[] arrayOfDiagonalElements;
     }
 }

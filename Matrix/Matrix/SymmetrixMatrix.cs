@@ -6,18 +6,42 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class SymmetrixMatrix<T> : SquareMatrix<T> where T : IEquatable<T>
+    public class SymmetrixMatrix<T> : Matrix<T>
     {
-        public SymmetrixMatrix(T[] array) : base(array)
+        public SymmetrixMatrix(T[][] array) 
         {
-            for (int i = 0; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    if(!innerArray[i][j].Equals(innerArray[j][i]))
-                        throw new ArgumentException("The elements of the matrix must be symmetrical about the main diagonal.");
-                }
-            }
+            if(array == null)
+                throw new ArgumentNullException(nameof(array));
+
+            for (int i = 0; i < array.Length; i++)
+                if (array[i].Length != array.Length)
+                    throw new ArgumentException("Input array must be square.");
+
+            for (int i = 0; i < array.Length; i++)
+                for (int j = 0; j < array.Length; j++)
+                    if(!array[i][j].Equals(array[j][i]))
+                        throw new ArgumentException("The array has no elements symmetric about the main diagonal.");
+
+            Size = array.Length;
+
+            // TO-DO
         }
+
+        public override T GetValue(int i, int j)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SetValue(int i, int j, T value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IEnumerator<T> GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        private readonly T[][] triangleArray;
     }
 }

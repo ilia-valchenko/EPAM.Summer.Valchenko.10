@@ -7,26 +7,13 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class SquareMatrix<T> : IEnumerable<T> where T : IEquatable<T>
+    public class SquareMatrix<T> : Matrix<T>
     {
-        public delegate void MethodSet(int i, int j, T value);
+        #region Public fields and properties
 
-        public event MethodSet OnSet;
+        public event MethodSet OnSetValue; 
 
-        public int Size
-        {
-            get
-            {
-                return size;
-            }
-            set
-            {
-                if(value <= 0)
-                    throw new ArgumentException("Size of matrix can't be less or equal to zero.");
-
-                size = value;
-            }
-        }
+        #endregion
 
         public SquareMatrix(T[] array)
         {
@@ -40,77 +27,91 @@ namespace Matrix
 
             Size = (int)Math.Sqrt(array.Length);
 
-            innerArray = new T[Size][];
-
-            for(int i = 0; i < Size; i++)
-                innerArray[i] = new T[Size];
-
-            for (int i = 0, h = 0; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    innerArray[i][j] = array[h];
-                    h++;
-                }
-            }
-        }
-
-        /*public SquareMatrix(int size, T[] array)
-        {
-            Size = size;
-            
-            if(array.Length < size * size)
-                throw new ArgumentException("Number of elements in source array is less then number of elements in matrix.");
-
             innerArray = new T[Size, Size];
 
             for (int i = 0, h = 0; i < Size; i++)
             {
                 for (int j = 0; j < Size; j++)
                 {
-                    innerArray[i,j] = array[h];
+                    innerArray[i, j] = array[h];
                     h++;
                 }
             }
-        }*/
-
-        public virtual void Set(int i, int j, T value)
-        {
-            if(i < 0 || j < 0)
-                throw new ArgumentException("Index of element can't be less then zero.");
-
-            if(i > Size || j > Size)
-                throw new ArgumentException("Index of element can't be greater then size of matrix.");
-
-            if(value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            innerArray[i][j] = value;
-
-            OnSet(i, j, value);
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public SquareMatrix(T[][] array)
         {
-            /*foreach (T item in innerArray)
-                yield return item;*/
-                throw new NotImplementedException();
-        }      
+            if (array == null)
+                throw new ArgumentNullException(nameof(array));
 
-        IEnumerator IEnumerable.GetEnumerator() => innerArray.GetEnumerator();
+            for (int i = 0; i < array.Length; i++)
+                if(array[i].Length != array.Length)
+                    throw new ArgumentException("Input array must be square.");
 
-       public void PrintMatrix()
-       {
-           for (int i = 0; i < Size; i++)
-           {
-               for (int j = 0; j < Size; j++)
-                   Console.Write(innerArray[i][j] + " ");
+            Size = array.Length;
 
-               Console.Write(Environment.NewLine);
-           }
-       }
+            innerArray = new T[Size, Size];
 
-        protected int size;
-        protected T[][] innerArray;
+            for (int i = 0, h = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    innerArray[i,j] = array[i][j];
+        }
+
+        public SquareMatrix(T[,] array)
+        {
+            if (array == null)
+                throw new ArgumentNullException(nameof(array));
+
+            var sqrt = Math.Sqrt(array.Length);
+
+            if (Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) > Double.Epsilon)
+                throw new ArgumentException("Input array not a square array.");
+
+            Size = (int)sqrt;
+
+            /*innerArray = new T[Size, Size];
+
+            for (int i = 0, h = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    innerArray[i, j] = array[i, j];*/
+
+            innerArray = array;
+        }
+
+        public override T GetValue(int i, int j)
+        {
+            if (i < 0 || j < 0)
+                throw new ArgumentException("Index of element can't be less then zero.");
+
+            if (i > Size || j > Size)
+                throw new ArgumentException("Index of element can't be greater then size of matrix.");
+
+            return innerArray[i, j];
+        }
+
+        public override void SetValue(int i, int j, T value)
+        {
+            if (i < 0 || j < 0)
+                throw new ArgumentException("Index of element can't be less then zero.");
+
+            if (i > Size || j > Size)
+                throw new ArgumentException("Index of element can't be greater then size of matrix.");
+
+            if (value == null)
+                throw new ArgumentNullException(nameof(value));
+
+            innerArray[i, j] = value;
+
+            OnSetValue(i, j, value);
+        }
+
+        public override IEnumerator<T> GetEnumerator()
+        {
+            for(int i = 0; i < Size; i++)
+                for (int j = 0; j < Size; j++)
+                    yield return innerArray[i, j];
+        }
+
+        private readonly T[,] innerArray;
     }
 }
