@@ -73,7 +73,7 @@ namespace BinarySearchTree.Tests
         public bool TestFindString(string value)
         {
             var treeString = new BinaryTree<string>() { "Hello", "Mr", "Jon", "Skeet" };
-            return treeString.FindByValue(value, new ComparatorByStringLenght()).Value == "Bob";
+            return treeString.FindByValue(value).Value == "Bob";
         }
     }
 }

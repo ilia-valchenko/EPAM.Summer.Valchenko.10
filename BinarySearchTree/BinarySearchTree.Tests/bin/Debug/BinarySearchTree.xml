@@ -6,7 +6,7 @@
     <members>
         <member name="T:BinarySearchTree.BinaryTree`1">
             <summary>
-            This class represents a BST.
+            This class represents a Binary search tree.
             </summary>
             <typeparam name="T">T is a type of BST's elements.</typeparam>
         </member>
@@ -15,9 +15,19 @@
             Number of elements in BST.
             </summary>
         </member>
+        <member name="P:BinarySearchTree.BinaryTree`1.Comparator">
+            <summary>
+            Custom comparator.
+            </summary>
+        </member>
         <member name="M:BinarySearchTree.BinaryTree`1.#ctor">
             <summary>
-            Default constructor which creates empty BST.
+            Default constructor which sets a default value for the comparator.
+            </summary>
+        </member>
+        <member name="M:BinarySearchTree.BinaryTree`1.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            Constructor which takes custom comparator as an argument.
             </summary>
         </member>
         <member name="M:BinarySearchTree.BinaryTree`1.Add(`0)">
@@ -26,36 +36,29 @@
             </summary>
             <param name="value">Value which will be added.</param>
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.Add(`0,System.Collections.Generic.IComparer{`0})">
-            <summary>
-            This method adds value to the BST by using custom comparator.
-            </summary>
-            <param name="value">Value which will be added.</param>
-            <param name="comparator">Custom comparator.</param>
-        </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.AddTo(BinarySearchTree.BinaryTree{`0}.Node,`0,System.Collections.Generic.IComparer{`0})">
+        <member name="M:BinarySearchTree.BinaryTree`1.AddTo(BinarySearchTree.BinaryTree{`0}.Node,`0)">
             <summary>
             This is helper method which use recursion for adding value to the BST. 
             </summary>
             <param name="node">The node that will be used to determine on what go further subtree.</param>
             <param name="value">Value which will be added.</param>
-            <param name="comparator">Custom comparator.</param>
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.FindByValue(`0,System.Collections.Generic.IComparer{`0})">
+        <member name="M:BinarySearchTree.BinaryTree`1.FindByValue(`0)">
             <summary>
-            This method finds node which contains a given value by using custom comparator.
+            This method finds BST's node by given value.
             </summary>
-            <param name="value">The value which node should contains.</param>
-            <param name="comparator">Custom comparator.</param>
-            <returns>Node which contains a given value.</returns>
+            <param name="value">Value which one of nodes might contains.</param>
+            <returns>Returns node if the BST contains this value or null if it not.</returns>
+            
+            
+            
         </member>
-        <member name="M:BinarySearchTree.BinaryTree`1.Find(BinarySearchTree.BinaryTree{`0}.Node,`0,System.Collections.Generic.IComparer{`0})">
+        <member name="M:BinarySearchTree.BinaryTree`1.Find(BinarySearchTree.BinaryTree{`0}.Node,`0)">
             <summary>
             This is the helper method which is called by FindByValue method. 
             </summary>
             <param name="node">The node that will be used to determine on what go further subtree.</param>
             <param name="value">Seeking value.</param>
-            <param name="comparator">Custom comparator.</param>
             <returns>Returns node if the BST contains this value or null if it not.</returns>
         </member>
         <member name="M:BinarySearchTree.BinaryTree`1.Preorder">
@@ -117,7 +120,7 @@
         </member>
         <member name="T:BinarySearchTree.BinaryTree`1.Node">
             <summary>
-            This class represents the node of BST.
+            This class represents a node of BST.
             </summary>
         </member>
         <member name="P:BinarySearchTree.BinaryTree`1.Node.Left">
@@ -142,9 +145,9 @@
         </member>
         <member name="M:BinarySearchTree.BinaryTree`1.Node.#ctor(`0)">
             <summary>
-            Constructor with parameter.
+            This constructor takes one parameter which will be represent the value of a node.
             </summary>
-            <param name="value"></param>
+            <param name="value">Value which current node will contain.</param>
         </member>
         <member name="M:BinarySearchTree.BinaryTree`1.Node.ToString">
             <summary>
@@ -165,6 +168,11 @@
         <member name="F:BinarySearchTree.BinaryTree`1.count">
             <summary>
             Number of elements in BST.
+            </summary>
+        </member>
+        <member name="F:BinarySearchTree.BinaryTree`1.comparator">
+            <summary>
+            Custom comparator.
             </summary>
         </member>
     </members>

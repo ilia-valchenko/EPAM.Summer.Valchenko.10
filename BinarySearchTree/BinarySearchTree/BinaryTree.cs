@@ -10,30 +10,72 @@ using System.Threading.Tasks;
 namespace BinarySearchTree
 {
     /// <summary>
-    /// This class represents a BST.
+    /// This class represents a Binary search tree.
     /// </summary>
     /// <typeparam name="T">T is a type of BST's elements.</typeparam>
-    public class BinaryTree<T> : ICollection<T> where T : IComparable<T>, IEquatable<T>
+    public sealed class BinaryTree<T> : ICollection<T>
     {
         #region Public fields and properties
+
         /// <summary>
         /// Number of elements in BST.
         /// </summary>
-        public int Count => count;
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+            set
+            {
+                if(value < 0)
+                    throw new ArgumentException("Count can't be less then zero.");
+
+                count = value;
+            }
+        }
+
+        /// <summary>
+        /// Custom comparator.
+        /// </summary>
+        public IComparer<T> Comparator
+        {
+            get
+            {
+                return comparator;
+            }
+            set
+            {
+                if(value == null)
+                    throw new ArgumentNullException(nameof(value));
+
+                comparator = value;
+            }
+        }
+
         #endregion
 
         #region Constructors
+
         /// <summary>
-        /// Default constructor which creates empty BST.
+        /// Default constructor which sets a default value for the comparator.
         /// </summary>
-        public BinaryTree()
+        public BinaryTree() : this(Comparer<T>.Default) { }
+
+        /// <summary>
+        /// Constructor which takes custom comparator as an argument.
+        /// </summary>
+        public BinaryTree(IComparer<T> comparator)
         {
             head = null;
-            count = 0;
+            Count = 0;
+            this.comparator = comparator;
         }
+
         #endregion
 
         #region Basic BTS operations
+
         /// <summary>
         /// This method adds elements to the BST.
         /// </summary>
@@ -44,37 +86,16 @@ namespace BinarySearchTree
                 throw new ArgumentNullException(nameof(value));
 
             if (head == null)
+            {
                 head = new Node(value);
-
-            // Without duplicates
+                Count++;
+                return;
+            }
+                
             if (!Contains(value))
             {
                 AddTo(head, value);
-                count++;
-            }
-        }
-
-        /// <summary>
-        /// This method adds value to the BST by using custom comparator.
-        /// </summary>
-        /// <param name="value">Value which will be added.</param>
-        /// <param name="comparator">Custom comparator.</param>
-        public void Add(T value, IComparer<T> comparator)
-        {
-            if(value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            if(comparator == null)
-                throw new ArgumentNullException(nameof(comparator));
-
-            if (head == null)
-                head = new Node(value);
-
-            // Without duplicates
-            if (!Contains(value))
-            {
-                AddTo(head, value, comparator);
-                count++;
+                Count++;
             }
         }
 
@@ -83,31 +104,21 @@ namespace BinarySearchTree
         /// </summary>
         /// <param name="node">The node that will be used to determine on what go further subtree.</param>
         /// <param name="value">Value which will be added.</param>
-        /// <param name="comparator">Custom comparator.</param>
-        private void AddTo(Node node, T value, IComparer<T> comparator = null)
+        private void AddTo(Node node, T value)
         {
-            int resultOfComparison;
-
-            var helper = comparator;
-
-            if (comparator == null)
-                resultOfComparison = value.CompareTo(node.Value);
-            else
-                resultOfComparison = comparator.Compare(value, node.Value);
-
-            if (resultOfComparison < 0)
+            if (comparator.Compare(value, node.Value) < 0)
             {
                 if (node.Left == null)
                     node.Left = new Node(value);
                 else
-                    AddTo(node.Left, value, helper);
+                    AddTo(node.Left, value);
             }
             else
             {
                 if (node.Right == null)
                     node.Right = new Node(value);
                 else
-                    AddTo(node.Right, value, helper);
+                    AddTo(node.Right, value);
             }
         }
 
@@ -119,72 +130,41 @@ namespace BinarySearchTree
         /// 
         /// 
         /// 
-       // public Node FindByValue(T value) => Find(head, value);
-
-        /// <summary>
-        /// This method finds node which contains a given value by using custom comparator.
-        /// </summary>
-        /// <param name="value">The value which node should contains.</param>
-        /// <param name="comparator">Custom comparator.</param>
-        /// <returns>Node which contains a given value.</returns>
-        public Node FindByValue(T value, IComparer<T> comparator)
+        public Node FindByValue(T value)
         {
-            if(comparator == null)
-                throw new ArgumentNullException(nameof(comparator));
+            if(value == null)
+                throw new ArgumentNullException(nameof(value));
 
-            return Find(head, value, comparator);
-        }
+            if (head == null)
+                throw new InvalidOperationException("Tree is empty!");
+
+            return Find(head, value);
+        } 
 
         /// <summary>
         /// This is the helper method which is called by FindByValue method. 
         /// </summary>
         /// <param name="node">The node that will be used to determine on what go further subtree.</param>
         /// <param name="value">Seeking value.</param>
-        /// <param name="comparator">Custom comparator.</param>
         /// <returns>Returns node if the BST contains this value or null if it not.</returns>
-        private Node Find(Node node, T value, IComparer<T> comparator/* = null*/)
+        private Node Find(Node node, T value)
         {
-            if (value == null)
-                throw new ArgumentNullException(nameof(value));
-
-            if (head == null)
-                throw new InvalidOperationException("Tree is empty!");
-
-            // Not found
             if (node == null)
                 return null;
 
+            if (comparator.Compare(node.Value, value) == 0)
+                return node;
 
-            IComparer<T> helper = comparator;
+            if (comparator.Compare(node.Value, value) > 0)
+                return Find(node.Left, value);
 
-
-            //By using default CompareTo
-            if (comparator == null)
-                {
-                    if (node.Value.CompareTo(value) == 0)
-                        return node;
-
-                    if (node.Value.CompareTo(value) > 0)
-                        return Find(node.Left, value, helper);
-
-                    return Find(node.Right, value, helper);
-                }
-                else // By using custom comparator
-                {
-                    Console.WriteLine("Что сравниваем: " + value + " Результат сравнения с " + node.Value + "  дал " + comparator.Compare(value, node.Value));
-
-                    if (comparator.Compare(value, node.Value) == 0)
-                        return node;
-
-                    if (comparator.Compare(value, node.Value) < 0)
-                        return Find(node.Left, value, helper);
-                    else
-                        return Find(node.Right, value, helper);
-                }
+            return Find(node.Right, value);
         }
+
         #endregion
 
         #region Traversal methods
+
         /// <summary>
         /// Display the data part of the root (or current node). Traverse the left subtree by recursively calling the pre-order function. Traverse the right subtree by recursively calling the pre-order function.
         /// </summary>
@@ -299,7 +279,11 @@ namespace BinarySearchTree
         /// <summary>
         /// Clear the BST.
         /// </summary>
-        public void Clear() => head = null;
+        public void Clear()
+        {
+            head = null;
+            Count = 0;
+        }
 
         /// <summary>
         /// This method determines BST contains given element or not.
@@ -311,7 +295,7 @@ namespace BinarySearchTree
             if(item == null)
                 throw new ArgumentNullException(nameof(item));
 
-           // if (FindByValue(item) != null)
+            if (FindByValue(item) != null)
                 return true;
 
             return false;
@@ -360,11 +344,13 @@ namespace BinarySearchTree
         {
             throw new NotSupportedException();
         } 
+
         #endregion
 
         #region Node
+
         /// <summary>
-        /// This class represents the node of BST.
+        /// This class represents a node of BST.
         /// </summary>
         public class Node
         {
@@ -388,7 +374,7 @@ namespace BinarySearchTree
                 }
                 private set
                 {
-                    if (ReferenceEquals(value, null))
+                    if (value == null)
                         throw new ArgumentException("Value of tree's node can't be null.");
 
                     this.value = value;
@@ -401,9 +387,9 @@ namespace BinarySearchTree
             public Node() : this(default(T)) { }
 
             /// <summary>
-            /// Constructor with parameter.
+            /// This constructor takes one parameter which will be represent the value of a node.
             /// </summary>
-            /// <param name="value"></param>
+            /// <param name="value">Value which current node will contain.</param>
             public Node(T value)
             {
                 Value = value;
@@ -415,14 +401,15 @@ namespace BinarySearchTree
             /// <returns>Representation of node in string foemat.</returns>
             public override string ToString()
             {
-                if (ReferenceEquals(Left, null))
+                if (Left == null)
                 {
-                    if (ReferenceEquals(Right, null))
+                    if (Right == null)
                         return $"Value: {value}, left: empty, right: empty.";
+
                     return $"Value: {value}, left: empty, right: {Right.Value}";
                 }
 
-                if (ReferenceEquals(Right, null))
+                if (Right == null)
                     return $"Value: {value}, left: {Left.value}, right: empty.";
 
                 return $"Value: {value}, left: {Left.value}, right: {Right.value}.";
@@ -433,9 +420,11 @@ namespace BinarySearchTree
             /// </summary>
             private T value;
         }
+
         #endregion
 
         #region Private fields and properties
+
         /// <summary>
         /// Main root of BST.
         /// </summary>
@@ -443,7 +432,12 @@ namespace BinarySearchTree
         /// <summary>
         /// Number of elements in BST.
         /// </summary>
-        private int count; 
+        private int count;
+        /// <summary>
+        /// Custom comparator.
+        /// </summary>
+        private IComparer<T> comparator;
+
         #endregion
     }
 }
