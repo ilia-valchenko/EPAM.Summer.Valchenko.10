@@ -12,6 +12,7 @@ namespace Matrix
         public delegate void MethodSet(int i, int j, T value);
         public abstract T GetValue(int i, int j);
         public abstract void SetValue(int i, int j, T value);
+        public abstract Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix);
         public abstract IEnumerator<T> GetEnumerator();
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 

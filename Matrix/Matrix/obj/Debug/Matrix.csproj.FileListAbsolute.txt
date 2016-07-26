@@ -3,3 +3,8 @@ c:\users\ilia\documents\visual studio 2015\Projects\Matrix\Matrix\bin\Debug\Matr
 c:\users\ilia\documents\visual studio 2015\Projects\Matrix\Matrix\obj\Debug\Matrix.csprojResolveAssemblyReference.cache
 c:\users\ilia\documents\visual studio 2015\Projects\Matrix\Matrix\obj\Debug\Matrix.dll
 c:\users\ilia\documents\visual studio 2015\Projects\Matrix\Matrix\obj\Debug\Matrix.pdb
+G:\GitEpam\Day10\Matrix\Matrix\bin\Debug\Matrix.dll
+G:\GitEpam\Day10\Matrix\Matrix\bin\Debug\Matrix.pdb
+G:\GitEpam\Day10\Matrix\Matrix\obj\Debug\Matrix.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\Matrix\Matrix\obj\Debug\Matrix.dll
+G:\GitEpam\Day10\Matrix\Matrix\obj\Debug\Matrix.pdb

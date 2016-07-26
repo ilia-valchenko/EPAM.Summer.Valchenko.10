@@ -57,6 +57,11 @@ namespace Matrix
             OnSetValue(i, j, value);
         }
 
+        public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
+        {
+            throw new NotImplementedException();
+        }
+
         public override IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < Size; i++)

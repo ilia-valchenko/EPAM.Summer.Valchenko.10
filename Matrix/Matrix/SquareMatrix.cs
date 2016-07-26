@@ -69,12 +69,6 @@ namespace Matrix
 
             Size = (int)sqrt;
 
-            /*innerArray = new T[Size, Size];
-
-            for (int i = 0, h = 0; i < Size; i++)
-                for (int j = 0; j < Size; j++)
-                    innerArray[i, j] = array[i, j];*/
-
             innerArray = array;
         }
 
@@ -103,6 +97,11 @@ namespace Matrix
             innerArray[i, j] = value;
 
             OnSetValue(i, j, value);
+        }
+
+        public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
+        {
+            return visitor.Add(this, (dynamic)matrix);
         }
 
         public override IEnumerator<T> GetEnumerator()
