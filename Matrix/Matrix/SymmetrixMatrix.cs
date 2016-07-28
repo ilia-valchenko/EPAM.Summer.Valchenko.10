@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
+    /// <summary>
+    /// This class represetns a symmetric matrix type of T. 
+    /// </summary>
+    /// <typeparam name="T">Type of matrix elements.</typeparam>
     public class SymmetrixMatrix<T> : Matrix<T>
     {
+        /// <summary>
+        /// The event that the element responds to changes in the matrix.
+        /// </summary>
         public event MethodSet OnSetValue;
 
+        /// <summary>
+        /// This constructor takes triangle jagged array as input parameter.
+        /// </summary>
+        /// <param name="array">Triangle jagged array which consists of unique matrix elements.</param>
         public SymmetrixMatrix(T[][] array) 
         {
             if(array == null)
@@ -36,6 +47,12 @@ namespace Matrix
                     triangleArray[i][j] = array[i][j];
         }
 
+        /// <summary>
+        /// This method gets a value from i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <returns>Returns value from i,j position.</returns>
         public override T GetValue(int i, int j)
         {
             if (i < 0 || j < 0)
@@ -50,6 +67,12 @@ namespace Matrix
             return triangleArray[i][j];
         }
 
+        /// <summary>
+        /// This method sets a value to i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <param name="value">A new value.</param>
         public override void SetValue(int i, int j, T value)
         {
             if (i < 0 || j < 0)
@@ -66,14 +89,13 @@ namespace Matrix
 
             triangleArray[i][j] = value;
 
-            OnSetValue(i, j, value);
+            OnSetValue?.Invoke(i, j, value);
         }
 
-        public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// This method returns an enumerator.
+        /// </summary>
+        /// <returns>Returns an enumerator that iterates through a collection.</returns>
         public override IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < Size; i++)
@@ -88,6 +110,9 @@ namespace Matrix
             }
         }
 
+        /// <summary>
+        /// Jagged array which represents container for symmetrix matrix.
+        /// </summary>
         private readonly T[][] triangleArray;
     }
 }

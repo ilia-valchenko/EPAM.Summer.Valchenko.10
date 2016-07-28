@@ -1,8 +1,0 @@
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\bin\Debug\Matrix.dll
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\bin\Debug\Matrix.pdb
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
-G:\GitEpam\Day10\Matrix\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb

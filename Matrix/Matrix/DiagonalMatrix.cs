@@ -6,14 +6,21 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
+    /// <summary>
+    /// This class represents a diagonal matrix.
+    /// </summary>
+    /// <typeparam name="T">Type of matrix elements.</typeparam>
     public class DiagonalMatrix<T> : Matrix<T>
     {
-        #region Public fields and properties
-
+        /// <summary>
+        /// The event that the element responds to changes in the matrix.
+        /// </summary>
         public event MethodSet OnSetValue;
 
-        #endregion
-
+        /// <summary>
+        /// This constructor takes one-dimensional array which represents elements of diagonal elements.
+        /// </summary>
+        /// <param name="arrayOfDiagonalElements">One-dimensional array which represents elements of diagonal elements</param>
         public DiagonalMatrix(T[] arrayOfDiagonalElements) 
         {
             if(arrayOfDiagonalElements == null)
@@ -24,6 +31,12 @@ namespace Matrix
             this.arrayOfDiagonalElements = arrayOfDiagonalElements;
         }
 
+        /// <summary>
+        /// This method gets a value from i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <returns>Returns value from i,j position.</returns>
         public override T GetValue(int i, int j)
         {
             if (i < 0 || j < 0)
@@ -38,6 +51,12 @@ namespace Matrix
             return arrayOfDiagonalElements[i];
         }
 
+        /// <summary>
+        /// This method sets a value to i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <param name="value">A new value.</param>
         public override void SetValue(int i, int j, T value)
         {
             if (i < 0 || j < 0)
@@ -54,14 +73,13 @@ namespace Matrix
 
             arrayOfDiagonalElements[i] = value;
 
-            OnSetValue(i, j, value);
+            OnSetValue?.Invoke(i, j, value);
         }
 
-        public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// This method returns an enumerator.
+        /// </summary>
+        /// <returns>Returns an enumerator that iterates through a collection.</returns>
         public override IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < Size; i++)
@@ -76,6 +94,9 @@ namespace Matrix
             }
         }
 
+        /// <summary>
+        /// Array of diagonal elements of current diagonal matrix.
+        /// </summary>
         private readonly T[] arrayOfDiagonalElements;
     }
 }

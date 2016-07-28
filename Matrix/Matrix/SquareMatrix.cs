@@ -7,14 +7,21 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
+    /// <summary>
+    /// This class represents a square matrix.
+    /// </summary>
+    /// <typeparam name="T">Type of matrix elements.</typeparam>
     public class SquareMatrix<T> : Matrix<T>
     {
-        #region Public fields and properties
+        /// <summary>
+        /// The event that the element responds to changes in the matrix.
+        /// </summary>
+        public event MethodSet OnSetValue;
 
-        public event MethodSet OnSetValue; 
-
-        #endregion
-
+        /// <summary>
+        /// This constructor takes one-dimensional array. The matrix size is equal to the square root of the number of elements of the input array.
+        /// </summary>
+        /// <param name="array">One-dimensional array which represents all elements of matrix.</param>
         public SquareMatrix(T[] array)
         {
             if(array == null)
@@ -39,24 +46,32 @@ namespace Matrix
             }
         }
 
+        /// <summary>
+        /// This constructor takes square two-dimensional array which will be represent a new square matrix.
+        /// </summary>
+        /// <param name="array">Square two-dimensional array.</param>
         public SquareMatrix(T[][] array)
         {
             if (array == null)
                 throw new ArgumentNullException(nameof(array));
 
-            for (int i = 0; i < array.Length; i++)
-                if(array[i].Length != array.Length)
+            foreach (T[] row in array)
+                if(row.Length != array.Length)
                     throw new ArgumentException("Input array must be square.");
 
             Size = array.Length;
 
             innerArray = new T[Size, Size];
 
-            for (int i = 0, h = 0; i < Size; i++)
+            for (int i = 0; i < Size; i++)
                 for (int j = 0; j < Size; j++)
                     innerArray[i,j] = array[i][j];
         }
 
+        /// <summary>
+        /// This constructor takes multidimensional square array which will be represent a new square matrix.
+        /// </summary>
+        /// <param name="array">Square multidimensional matrix.</param>
         public SquareMatrix(T[,] array)
         {
             if (array == null)
@@ -72,6 +87,12 @@ namespace Matrix
             innerArray = array;
         }
 
+        /// <summary>
+        /// This method gets a value from i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <returns>Returns value from i,j position.</returns>
         public override T GetValue(int i, int j)
         {
             if (i < 0 || j < 0)
@@ -83,6 +104,12 @@ namespace Matrix
             return innerArray[i, j];
         }
 
+        /// <summary>
+        /// This method sets a value to i,j position of current matrix.
+        /// </summary>
+        /// <param name="i">Number of row of current matrix.</param>
+        /// <param name="j">Number of column of current matrix.</param>
+        /// <param name="value">A new value.</param>
         public override void SetValue(int i, int j, T value)
         {
             if (i < 0 || j < 0)
@@ -99,11 +126,10 @@ namespace Matrix
             OnSetValue(i, j, value);
         }
 
-        public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
-        {
-            return visitor.Operation(this, (dynamic)matrix);
-        }
-
+        /// <summary>
+        /// This method returns an enumerator.
+        /// </summary>
+        /// <returns>Returns an enumerator that iterates through a collection.</returns>
         public override IEnumerator<T> GetEnumerator()
         {
             for(int i = 0; i < Size; i++)
@@ -111,6 +137,9 @@ namespace Matrix
                     yield return innerArray[i, j];
         }
 
+        /// <summary>
+        /// Multidimensional array which represents elements of square matrix.
+        /// </summary>
         private readonly T[,] innerArray;
     }
 }

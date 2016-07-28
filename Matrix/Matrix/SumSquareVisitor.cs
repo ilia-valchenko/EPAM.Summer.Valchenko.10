@@ -8,6 +8,11 @@ namespace Matrix
 {
     public class SumSquareVisitor<T> : MatrixVisitor<T>
     {
+        public SumSquareVisitor(Func<T, T, T> sumOfTwoTypesOperation)
+        {
+            this.sumOfTwoTypesOperation = sumOfTwoTypesOperation;
+        }
+
         public override Matrix<T> Operation(Matrix<T> A, Matrix<T> B)
         {
             if(A == null)
@@ -25,21 +30,12 @@ namespace Matrix
                 reault[i] = new T[reault.Length];
 
             for (int i = 0; i < reault.Length; i++)
-            {
                 for (int j = 0; j < reault.Length; j++)
-                {
-                    try
-                    {
-                        reault[i][j] = (dynamic) A.GetValue(i, j) + B.GetValue(i, j);
-                    }
-                    catch (Exception exc)
-                    {
-                        Console.WriteLine("Cannot apply Operator '+' to operands of type T and T");
-                    }
-                }   
-            }
+                    reault[i][j] = sumOfTwoTypesOperation(A.GetValue(i, j), B.GetValue(i, j)); 
                 
             return new SquareMatrix<T>(reault);
         }
+
+        private readonly Func<T, T, T> sumOfTwoTypesOperation;
     }
 }
