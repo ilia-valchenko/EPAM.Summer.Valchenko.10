@@ -101,7 +101,7 @@ namespace Matrix
 
         public override Matrix<T> Accept(MatrixVisitor<T> visitor, Matrix<T> matrix)
         {
-            return visitor.Add(this, (dynamic)matrix);
+            return visitor.Operation(this, (dynamic)matrix);
         }
 
         public override IEnumerator<T> GetEnumerator()

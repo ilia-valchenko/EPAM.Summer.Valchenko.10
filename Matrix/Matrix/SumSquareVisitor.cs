@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class ConcreteVisitor<T> : MatrixVisitor<T>
+    public class SumSquareVisitor<T> : MatrixVisitor<T>
     {
-        public override SquareMatrix<T> Add(SquareMatrix<T> A, SquareMatrix<T> B)
+        public override Matrix<T> Operation(Matrix<T> A, Matrix<T> B)
         {
             if(A == null)
                 throw new ArgumentNullException(nameof(A));
@@ -40,31 +40,6 @@ namespace Matrix
             }
                 
             return new SquareMatrix<T>(reault);
-        }
-
-        public override SquareMatrix<T> Add(SquareMatrix<T> A, SymmetrixMatrix<T> B)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override SquareMatrix<T> Add(SquareMatrix<T> A, DiagonalMatrix<T> B)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override SymmetrixMatrix<T> Add(SymmetrixMatrix<T> A, SymmetrixMatrix<T> B)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override SymmetrixMatrix<T> Add(SymmetrixMatrix<T> A, DiagonalMatrix<T> B)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override DiagonalMatrix<T> Add(DiagonalMatrix<T> A, DiagonalMatrix<T> B)
-        {
-            throw new NotImplementedException();
         }
     }
 }

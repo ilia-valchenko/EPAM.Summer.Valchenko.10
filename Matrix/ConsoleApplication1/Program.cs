@@ -40,7 +40,7 @@ namespace ConsoleApplication1
             /// 
             var mtx = new SquareMatrix<int>(new int[] {1,3,0,3,2,6,0,6,5});
 
-            var visitor = new ConcreteVisitor<int>();
+            var visitor = new SumSquareVisitor<int>();
 
             var res = mtx.Accept(visitor, mtx);
 
