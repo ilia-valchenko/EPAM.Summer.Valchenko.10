@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace Matrix
     /// This is the base class of all matrices. It defines the basic behavior for all matrices.
     /// </summary>
     /// <typeparam name="T">Type of matrix elements.</typeparam>
-    public abstract class Matrix<T> : IEnumerable<T>
+    public abstract class Matrix<T> : IEnumerable<T>, IEquatable<Matrix<T>>
     {
         #region Public fields and properties
         /// <summary>
@@ -74,6 +75,29 @@ namespace Matrix
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator(); 
         #endregion
+
+        public bool Equals(Matrix<T> other)
+        {
+            if (other == null)
+                return false;
+
+            if (this.Size != other.Size)
+                return false;
+
+            for(int i = 0; i < Size; i++)
+                for(int j = 0; j < Size; j++)
+                    if (!this.GetValue(i, j).Equals(other.GetValue(i, j)))
+                        return false;
+
+            return true;
+        }
+
+        public override bool Equals(object obj) => Equals(obj as Matrix<T>);
+
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Size of matrix.

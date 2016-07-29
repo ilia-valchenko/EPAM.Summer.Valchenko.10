@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Matrix
 {
-    public class SumSquareVisitor<T> : MatrixVisitor<T>
+    public class SumOfMatricesVisitor<T> : MatrixVisitor<T>
     {
-        public SumSquareVisitor(Func<T, T, T> sumOfTwoTypesOperation)
+        public SumOfMatricesVisitor(Func<T, T, T> sumOfTwoTypesOperation)
         {
             this.sumOfTwoTypesOperation = sumOfTwoTypesOperation;
         }
@@ -32,8 +32,14 @@ namespace Matrix
             for (int i = 0; i < reault.Length; i++)
                 for (int j = 0; j < reault.Length; j++)
                     reault[i][j] = sumOfTwoTypesOperation(A.GetValue(i, j), B.GetValue(i, j)); 
-                
-            return new SquareMatrix<T>(reault);
+
+            if(A.GetType() == typeof(SquareMatrix<T>) || B.GetType() == typeof(SquareMatrix<T>))
+                return new SquareMatrix<T>(reault);
+
+            if((A.GetType() == typeof(SymmetrixMatrix<T>) || B.GetType() == typeof(SymmetrixMatrix<T>)) && (A.GetType() != typeof(SquareMatrix<T>) && B.GetType() != typeof(SquareMatrix<T>)))
+                return new SymmetrixMatrix<T>(reault);
+
+            return new DiagonalMatrix<T>(reault);
         }
 
         private readonly Func<T, T, T> sumOfTwoTypesOperation;

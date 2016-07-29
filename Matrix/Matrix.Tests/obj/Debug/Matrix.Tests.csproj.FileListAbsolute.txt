@@ -1,0 +1,10 @@
+G:\GitEpam\Day10\Matrix\Matrix.Tests\obj\Debug\Matrix.Tests.csprojResolveAssemblyReference.cache
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\Matrix.Tests.dll
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\Matrix.Tests.pdb
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\Matrix.dll
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\nunit.framework.dll
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\Matrix.pdb
+G:\GitEpam\Day10\Matrix\Matrix.Tests\bin\Debug\nunit.framework.xml
+G:\GitEpam\Day10\Matrix\Matrix.Tests\obj\Debug\Matrix.Tests.dll
+G:\GitEpam\Day10\Matrix\Matrix.Tests\obj\Debug\Matrix.Tests.pdb

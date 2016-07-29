@@ -13,23 +13,26 @@ namespace Matrix
     /// <typeparam name="T">Type of matrix elements.</typeparam>
     public class SquareMatrix<T> : Matrix<T>
     {
+        #region Public fields and properties
         /// <summary>
         /// The event that the element responds to changes in the matrix.
         /// </summary>
-        public event MethodSet OnSetValue;
+        public event MethodSet OnSetValue; 
+        #endregion
 
+        #region Constructors
         /// <summary>
         /// This constructor takes one-dimensional array. The matrix size is equal to the square root of the number of elements of the input array.
         /// </summary>
         /// <param name="array">One-dimensional array which represents all elements of matrix.</param>
         public SquareMatrix(T[] array)
         {
-            if(array == null)
+            if (array == null)
                 throw new ArgumentNullException(nameof(array));
 
             var sqrt = Math.Sqrt(array.Length);
 
-            if(Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) > Double.Epsilon)
+            if (Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) > Double.Epsilon)
                 throw new ArgumentException("Square root of numbers of elements in source array must be an integer.");
 
             Size = (int)Math.Sqrt(array.Length);
@@ -56,7 +59,7 @@ namespace Matrix
                 throw new ArgumentNullException(nameof(array));
 
             foreach (T[] row in array)
-                if(row.Length != array.Length)
+                if (row.Length != array.Length)
                     throw new ArgumentException("Input array must be square.");
 
             Size = array.Length;
@@ -65,7 +68,7 @@ namespace Matrix
 
             for (int i = 0; i < Size; i++)
                 for (int j = 0; j < Size; j++)
-                    innerArray[i,j] = array[i][j];
+                    innerArray[i, j] = array[i][j];
         }
 
         /// <summary>
@@ -86,7 +89,9 @@ namespace Matrix
 
             innerArray = array;
         }
+        #endregion
 
+        #region Get and Set mathods
         /// <summary>
         /// This method gets a value from i,j position of current matrix.
         /// </summary>
@@ -125,21 +130,26 @@ namespace Matrix
 
             OnSetValue(i, j, value);
         }
+        #endregion
 
+        #region Enumerator
         /// <summary>
         /// This method returns an enumerator.
         /// </summary>
         /// <returns>Returns an enumerator that iterates through a collection.</returns>
         public override IEnumerator<T> GetEnumerator()
         {
-            for(int i = 0; i < Size; i++)
+            for (int i = 0; i < Size; i++)
                 for (int j = 0; j < Size; j++)
                     yield return innerArray[i, j];
         }
+        #endregion
 
+        #region Private fields and properties
         /// <summary>
         /// Multidimensional array which represents elements of square matrix.
         /// </summary>
-        private readonly T[,] innerArray;
+        private readonly T[,] innerArray; 
+        #endregion
     }
 }
